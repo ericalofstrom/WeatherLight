@@ -6,4 +6,5 @@ package netlight.weatherlight.model.weather.details;
 public class Wind {
     public int speed;
     public int deg;
+    public int gust;
 }
