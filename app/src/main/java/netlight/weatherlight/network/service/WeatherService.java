@@ -36,6 +36,7 @@ public class WeatherService {
         @Override
         public void failure (RetrofitError error) {
             eventBus.post(new OnHttpFailedEvent(error));
+
         }
     };
 }
