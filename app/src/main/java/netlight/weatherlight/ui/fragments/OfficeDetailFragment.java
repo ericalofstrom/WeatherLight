@@ -1,29 +1,13 @@
 package netlight.weatherlight.ui.fragments;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.squareup.otto.Subscribe;
-import com.squareup.picasso.Picasso;
-
-import butterknife.ButterKnife;
-import butterknife.InjectView;
 import netlight.weatherlight.R;
-import netlight.weatherlight.model.weather.OfficeWeather;
-import netlight.weatherlight.model.weather.details.Weather;
-import netlight.weatherlight.network.event.OnHttpFailedEvent;
-import netlight.weatherlight.network.event.OnHttpSuccessEvent;
-import netlight.weatherlight.network.provider.BusProvider;
-import netlight.weatherlight.network.provider.ServiceProvider;
 
 public class OfficeDetailFragment extends Fragment {
 
