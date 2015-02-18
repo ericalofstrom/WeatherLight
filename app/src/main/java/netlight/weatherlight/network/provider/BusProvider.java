@@ -1,9 +1,14 @@
 package netlight.weatherlight.network.provider;
 
-/**
- * Created by amgh on 18/02/15.
- */
+import com.squareup.otto.Bus;
+
 public class BusProvider {
 
-    private static final String TAG = BusProvider.class.getSimpleName() + " -> ";
+    private static final Bus BUS = new Bus();
+
+    private BusProvider () {}
+
+    public static Bus getBus () {
+        return BUS;
+    }
 }
