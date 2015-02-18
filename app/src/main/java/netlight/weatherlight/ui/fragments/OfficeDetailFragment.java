@@ -2,10 +2,11 @@ package netlight.weatherlight.ui.fragments;
 
 
 import android.os.Bundle;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import butterknife.ButterKnife;
@@ -20,6 +21,15 @@ public class OfficeDetailFragment extends Fragment {
 
     @InjectView(R.id.office_name_header)
     TextView officeHeader;
+
+    @InjectView(R.id.weather_name)
+    TextView weatherName;
+
+    @InjectView(R.id.weather_description)
+    TextView watherDescription;
+
+    @InjectView(R.id.weather_image)
+    ImageView weatherIcon;
 
     public static OfficeDetailFragment newInstance(String name) {
         OfficeDetailFragment fragment = new OfficeDetailFragment();
@@ -46,6 +56,7 @@ public class OfficeDetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_detail, container, false);
         ButterKnife.inject(this, view);
+
         return view;
     }
 
