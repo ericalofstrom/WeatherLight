@@ -13,11 +13,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.squareup.otto.Subscribe;
+import com.squareup.picasso.Picasso;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import netlight.weatherlight.R;
 import netlight.weatherlight.model.weather.OfficeWeather;
+import netlight.weatherlight.model.weather.details.Weather;
 import netlight.weatherlight.network.event.OnHttpFailedEvent;
 import netlight.weatherlight.network.event.OnHttpSuccessEvent;
 import netlight.weatherlight.network.provider.BusProvider;
@@ -28,13 +30,14 @@ public class OfficeDetailFragment extends Fragment {
     private static final String OFFICE_CITY = "city";
     private static final String OFFICE_COUNTRY = "country";
 
+    private static final String imageUrl = "http://openweathermap.org/img/w/";
 
     private String mOfficeCity;
     private String mOfficeCountry;
 
     @InjectView(R.id.office_name_header) TextView officeHeader;
     @InjectView(R.id.weather_name) TextView weatherName;
-    @InjectView(R.id.weather_description) TextView watherDescription;
+    @InjectView(R.id.weather_description) TextView weatherDescription;
     @InjectView(R.id.weather_image) ImageView weatherIcon;
 
     public static OfficeDetailFragment newInstance(String city, String country) {
@@ -101,8 +104,10 @@ public class OfficeDetailFragment extends Fragment {
     }
 
     public void setupForecast(OfficeWeather forecast) {
-        weatherName.setText(forecast.weather.get(0).main);
-        watherDescription.setText(forecast.weather.get(0).description);
-
+        Weather weather = forecast.weather.get(0);
+        weatherName.setText("Current weather: "+weather.main);
+        weatherDescription.setText(weather.description);
+        Picasso.with(getActivity()).load(imageUrl+weather.icon+".png").into(weatherIcon);
+        Log.d("asdf", "url: " + imageUrl + weather.icon + ".png");
     }
 }

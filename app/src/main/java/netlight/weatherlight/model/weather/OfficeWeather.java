@@ -18,4 +18,5 @@ public class OfficeWeather {
     public String name;
     public int cod;
     public Snow snow;
+    public Rain rain;
 }
