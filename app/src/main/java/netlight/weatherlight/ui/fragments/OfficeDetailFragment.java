@@ -90,7 +90,7 @@ public class OfficeDetailFragment extends Fragment {
     }
 
     @Subscribe
-    public void onFethcOfficeWeather(OnHttpSuccessEvent event) {
+    public void onFethchOfficeWeather(OnHttpSuccessEvent event) {
         setupForecast(event.getOfficeWeather());
     }
 

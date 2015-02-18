@@ -1,5 +1,7 @@
 package netlight.weatherlight.network.service;
 
+import android.util.Log;
+
 import com.squareup.otto.Bus;
 
 import netlight.weatherlight.model.weather.OfficeWeather;
