@@ -92,12 +92,17 @@ public class OfficeDetailFragment extends Fragment {
 
     @Subscribe
     public void onFethchOfficeWeather(OnHttpSuccessEvent event) {
+        Toast.makeText(getActivity(), "Ok", Toast.LENGTH_LONG).show();
         setupForecast(event.getOfficeWeather());
     }
 
     @Subscribe
     public void onFethcOfficeWeatherFailed(OnHttpFailedEvent event) {
+<<<<<<< HEAD
         Toast.makeText(getActivity(), getString(R.string.failed_response_message), Toast.LENGTH_LONG).show();
+=======
+        Toast.makeText(getActivity(), "Failed", Toast.LENGTH_LONG).show();
+>>>>>>> 218886a6af840c12cec049e4017d639bc47ce9c8
     }
 
     public void setupForecast(OfficeWeather forecast) {

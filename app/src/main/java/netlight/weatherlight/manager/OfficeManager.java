@@ -25,7 +25,7 @@ public class OfficeManager {
             mOffices.add(new Office("Stockholm", "Sweden"));
             mOffices.add(new Office("Helsinki", "Finland"));
             mOffices.add(new Office("London", "United Kingdom"));
-            mOffices.add(new Office("München", "Germany"));
+            mOffices.add(new Office("Munich", "Germany"));
         }
         return mOffices;
     }
