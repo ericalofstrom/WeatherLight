@@ -29,7 +29,7 @@ public class MainActivity extends ActionBarActivity implements OfficeClickedList
     @Override
     public void officeClicked(Office office) {
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container, OfficeDetailFragment.newInstance(office.getCity() + ", " + office.getCountry()))
+                .replace(R.id.container, OfficeDetailFragment.newInstance(office.getCity()))
                 .addToBackStack(null)
                 .commit();
     }
@@ -47,5 +47,12 @@ public class MainActivity extends ActionBarActivity implements OfficeClickedList
         } else {
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         }
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        //This method is called when the up button is pressed. Just the pop back stack.
+        getSupportFragmentManager().popBackStack();
+        return true;
     }
 }
