@@ -11,21 +11,23 @@ import netlight.weatherlight.model.Office;
 public class OfficeManager {
 
 
-    private List<Office> mOffices;
+    private static List<Office> mOffices;
 
     public static Office getOfficeAt(int pos) {
-        return getNetlightOffices().get(pos);
+        return mOffices.get(pos);
     }
 
 
     public static List<Office> getNetlightOffices() {
-        List<Office> offices = new ArrayList<>();
-        offices.add(new Office("Oslo", "Norway"));
-        offices.add(new Office("Stockholm", "Sweden"));
-        offices.add(new Office("Helsinki", "Finland"));
-        offices.add(new Office("London", "United Kingdom"));
-        offices.add(new Office("München", "Germany"));
-        return offices;
+        if(mOffices == null) {
+            mOffices = new ArrayList<>();
+            mOffices.add(new Office("Oslo", "Norway"));
+            mOffices.add(new Office("Stockholm", "Sweden"));
+            mOffices.add(new Office("Helsinki", "Finland"));
+            mOffices.add(new Office("London", "United Kingdom"));
+            mOffices.add(new Office("München", "Germany"));
+        }
+        return mOffices;
     }
 
 }
