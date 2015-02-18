@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.otto.Subscribe;
 
@@ -91,12 +92,13 @@ public class OfficeDetailFragment extends Fragment {
 
     @Subscribe
     public void onFethchOfficeWeather(OnHttpSuccessEvent event) {
+        Toast.makeText(getActivity(), "Ok", Toast.LENGTH_LONG).show();
         setupForecast(event.getOfficeWeather());
     }
 
     @Subscribe
     public void onFethcOfficeWeatherFailed(OnHttpFailedEvent event) {
-
+        Toast.makeText(getActivity(), "Failed", Toast.LENGTH_LONG).show();
     }
 
     public void setupForecast(OfficeWeather forecast) {
