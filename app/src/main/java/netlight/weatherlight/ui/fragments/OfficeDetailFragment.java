@@ -35,17 +35,12 @@ public class OfficeDetailFragment extends Fragment {
     private String mOfficeCity;
     private String mOfficeCountry;
 
-    @InjectView(R.id.office_name_header) TextView officeHeader;
-    @InjectView(R.id.weather_name) TextView weatherName;
-    @InjectView(R.id.weather_description) TextView weatherDescription;
-    @InjectView(R.id.weather_image) ImageView weatherIcon;
 
     public static OfficeDetailFragment newInstance(String city, String country) {
         OfficeDetailFragment fragment = new OfficeDetailFragment();
         Bundle args = new Bundle();
         args.putString(OFFICE_CITY, city);
         args.putString(OFFICE_COUNTRY, country);
-
         fragment.setArguments(args);
         return fragment;
     }
@@ -63,51 +58,27 @@ public class OfficeDetailFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_detail, container, false);
-        ButterKnife.inject(this, view);
-        return view;
+        return inflater.inflate(R.layout.fragment_detail, container, false);
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        BusProvider.getBus().unregister(this);
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        BusProvider.getBus().register(this);
-        ServiceProvider.getWeatherService().onFetchOfficeWeather(mOfficeCity);
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        ButterKnife.reset(this);
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        officeHeader.setText(mOfficeCity+", "+mOfficeCountry);
     }
 
-    @Subscribe
-    public void onFethchOfficeWeather(OnHttpSuccessEvent event) {
-        setupForecast(event.getOfficeWeather());
-    }
-
-    @Subscribe
-    public void onFethcOfficeWeatherFailed(OnHttpFailedEvent event) {
-        Toast.makeText(getActivity(), getString(R.string.failed_response_message), Toast.LENGTH_LONG).show();
-    }
-
-    public void setupForecast(OfficeWeather forecast) {
-        Weather weather = forecast.weather.get(0);
-        weatherName.setText("Current weather: "+weather.main);
-        weatherDescription.setText(weather.description);
-        Picasso.with(getActivity()).load(imageUrl+weather.icon+".png").into(weatherIcon);
-        Log.d("asdf", "url: " + imageUrl + weather.icon + ".png");
-    }
 }
