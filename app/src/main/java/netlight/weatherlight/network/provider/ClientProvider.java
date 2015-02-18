@@ -1,11 +1,23 @@
 package netlight.weatherlight.network.provider;
 
-/**
- * Created by amgh on 18/02/15.
- */
+import netlight.weatherlight.network.service.Generator;
+import netlight.weatherlight.network.service.WeatherApi;
+import netlight.weatherlight.network.service.WeatherService;
+
 public class ClientProvider {
 
-    private static final String TAG = ClientProvider.class.getSimpleName() + " -> ";
 
+    private static WeatherApi weatherApi;
 
+    private ClientProvider(){
+        //Keep it single!
+    }
+
+    public static WeatherApi getWeatherApi() {
+
+        if (weatherApi == null) {
+            weatherApi = Generator.create(WeatherApi.class);
+        }
+        return weatherApi;
+    }
 }

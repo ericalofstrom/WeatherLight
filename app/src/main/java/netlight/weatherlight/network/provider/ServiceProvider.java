@@ -1,9 +1,10 @@
 package netlight.weatherlight.network.provider;
 
-/**
- * Created by amgh on 18/02/15.
- */
+import netlight.weatherlight.network.service.WeatherService;
+
 public class ServiceProvider {
 
-    private static final String TAG = ServiceProvider.class.getSimpleName() + " -> ";
+    public static WeatherService getWeatherService() {
+        return new WeatherService(BusProvider.getBus(), ClientProvider.getWeatherApi());
+    }
 }

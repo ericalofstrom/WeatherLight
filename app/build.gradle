@@ -13,15 +13,16 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            debuggable true
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField 'String', 'SERVER_URL', '"http://api.openweathermap.org/data/2.5/"'
         }
         debug {
             debuggable true
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            buildConfigField 'String', 'MOCK_URL', '"http://private-34569-fjellinjen.apiary-mock.com"'
-            buildConfigField 'String', 'SERVER_URL', '"http://10.241.61.20:8081"'
-
+            buildConfigField 'String', 'SERVER_URL', '"http://api.openweathermap.org/data/2.5/"'
         }
     }
 }
