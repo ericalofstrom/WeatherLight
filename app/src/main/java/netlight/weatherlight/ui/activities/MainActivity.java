@@ -29,7 +29,7 @@ public class MainActivity extends ActionBarActivity implements OfficeClickedList
     @Override
     public void officeClicked(Office office) {
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container, OfficeDetailFragment.newInstance(office.getCity()))
+                .replace(R.id.container, OfficeDetailFragment.newInstance(office.getCity(), office.getCountry()))
                 .addToBackStack(null)
                 .commit();
     }
