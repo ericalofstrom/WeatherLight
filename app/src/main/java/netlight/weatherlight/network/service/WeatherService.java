@@ -9,21 +9,16 @@ import retrofit.Callback;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
-
-/**
- * Created by amgh on 18/02/15.
- */
 public class WeatherService {
 
     private Bus eventBus;
     private WeatherApi weatherApi;
 
     public WeatherService (Bus eventBus, WeatherApi weatherApi) {
-
         this.eventBus = eventBus;
         this.weatherApi = weatherApi;
-
     }
+
 
     public void onFetchOfficeWeather(String city) {
         this.weatherApi.fetchOfficeWeather(city, ON_FETCH_OFFICE_WEATHER_CALLBACK);

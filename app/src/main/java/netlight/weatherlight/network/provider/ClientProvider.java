@@ -2,7 +2,6 @@ package netlight.weatherlight.network.provider;
 
 import netlight.weatherlight.network.service.Generator;
 import netlight.weatherlight.network.service.WeatherApi;
-import netlight.weatherlight.network.service.WeatherService;
 
 public class ClientProvider {
 
